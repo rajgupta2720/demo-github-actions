@@ -1,0 +1,27 @@
+name: Shell Commands
+
+on: [push]
+
+jobs:
+  run-shell-command:
+    runs-on: linux
+    steps:
+      - name: echo a string
+        run: echo "Hello World"
+      - name: Multiline script
+        run: |
+          hostname -a
+          uname -a
+      - name: Python Commands
+        run: |
+          import platform
+          print(platform.processor())
+        shell: python
+  run-windows-commands:
+    runs-on: windows
+    steps:
+      - name: Directory Powershell
+        run: Get-Location
+      - name: Directory Bash
+        run: pwd
+        shell: bash
